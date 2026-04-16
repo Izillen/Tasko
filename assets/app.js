@@ -64,3 +64,23 @@ function adicionarNaLista(tarefa) {
 
     lista.appendChild(item);
 }
+
+function atualizarStatus(id) {
+    const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+
+    const novasTarefas = tarefas.map(t => {
+        if (t.id === id) {
+            return { ...t, status: "Concluído" };
+        }
+        return t;
+    });
+
+    localStorage.setItem("tarefas", JSON.stringify(novasTarefas));
+}
+
+function carregarTarefas() {
+    const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    tarefas.forEach(tarefa => adicionarNaLista(tarefa));
+}
+
+window.onload = carregarTarefas;
