@@ -44,7 +44,7 @@ function adicionarNaLista(tarefa) {
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <strong>${tarefa.nome}</strong><br>
-                <small>Status: <span class="status">${tarefa.status}</span></small>
+                <small>Status: <span class="status badge ${(tarefa.status !== "Concluído" ? "text-bg-success" : "text-bg-info")} ">${tarefa.status}</span></small>
             </div>
             ${tarefa.status !== "Concluído" 
                 ? `<button class="btn btn-success btn-sm btn-concluir">Concluir</button>` 
