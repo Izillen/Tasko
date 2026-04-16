@@ -43,7 +43,9 @@ function adicionarNaLista(tarefa) {
     item.innerHTML = `
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <strong>${tarefa.nome}</strong><br>
+                <strong>${tarefa.nome}:</strong>
+                <small>${tarefa.descricao}</small>
+                <br>
                 <small><span class="status badge ${(tarefa.status !== "Concluído" ? "text-bg-info" : "text-bg-success")} ">${tarefa.status}</span></small>
             </div>
             ${tarefa.status !== "Concluído" 
@@ -59,7 +61,7 @@ function adicionarNaLista(tarefa) {
             atualizarStatus(tarefa.id);
             item.querySelector(".status").innerText = "Concluído";
             item.querySelector(".status").classList.add("text-bg-success");;
-            item.querySelector(".status").remove("text-bg-info");
+            item.querySelector(".status").classList.remove("text-bg-info");
             btn.remove();
         });
     }
