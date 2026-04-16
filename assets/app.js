@@ -58,6 +58,8 @@ function adicionarNaLista(tarefa) {
         btn.addEventListener("click", function () {
             atualizarStatus(tarefa.id);
             item.querySelector(".status").innerText = "Concluído";
+            item.querySelector(".status").classList.add("text-bg-success");;
+            item.querySelector(".status").remove("text-bg-info");
             btn.remove();
         });
     }
